@@ -12,7 +12,7 @@ WITH Step_1_route_stat AS (
  		        min (ARR_DELAY) AS min_arr_delay,
  		        sum(CANCELLED) AS total_cancelled,
  		        sum(DIVERTED) AS total_diverted
-        FROM {{ref("PREP_FLIGHTS")}} PF
+        FROM {{ref('PREP_FLIGHTS') }} PF
         GROUP BY origin, dest
 )
 SELECT 
@@ -25,6 +25,6 @@ SELECT
     s.*
 FROM Step_1_route_stat s
 LEFT JOIN 
-    {{ref("prep_airports") }} ap_origin ON s.origin = ap_origin.faa
+    {{ref('prep_airports') }} ap_origin ON s.origin = ap_origin.faa
 LEFT JOIN 
-    {{ref("prep_airports") }} ap_dest ON s.dest = ap_dest.faa;
+    {{ref('prep_airports') }} ap_dest ON s.dest = ap_dest.faa;
