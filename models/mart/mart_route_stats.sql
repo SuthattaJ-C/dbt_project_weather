@@ -12,7 +12,7 @@ WITH Step_1_route_stat AS (
  		        min (ARR_DELAY) AS min_arr_delay,
  		        sum(CANCELLED) AS total_cancelled,
  		        sum(DIVERTED) AS total_diverted
-        FROM {{ref('PREP_FLIGHTS') }} PF
+        FROM {{ref('prep_flights') }} PF
         GROUP BY origin, dest
 )
 SELECT 
