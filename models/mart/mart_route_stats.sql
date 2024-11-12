@@ -27,4 +27,4 @@ FROM Step_1_route_stat s
 LEFT JOIN 
     {{ref('prep_airports') }} ap_origin ON s.origin = ap_origin.faa
 LEFT JOIN 
-    {{ref('prep_airports') }} ap_dest ON s.dest = ap_dest.faa;
+    {{ref('prep_airports') }} ap_dest ON s.dest = ap_dest.faa
